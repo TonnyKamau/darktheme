@@ -5,7 +5,6 @@ import 'package:predict/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:predict/widget/change_theme_button_widget.dart';
 
-
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([
@@ -23,17 +22,16 @@ class MyApp extends StatelessWidget {
         builder: (context, _) {
           final themeProvider = Provider.of<ThemeProvider>(context);
           return MaterialApp(
-          themeMode: themeProvider.themeMode,
-          debugShowCheckedModeBanner: false,
-          title: 'Start Name Generator',
-          theme: MyThemes.lightTheme,
-          darkTheme: MyThemes.darkTheme,
-          home: RandomWords(),
-    );
+            themeMode: themeProvider.themeMode,
+            debugShowCheckedModeBanner: false,
+            title: 'Name Generator',
+            theme: MyThemes.lightTheme,
+            darkTheme: MyThemes.darkTheme,
+            home: RandomWords(),
+          );
         },
       );
-  }
-
+}
 
 class RandomWords extends StatefulWidget {
   const RandomWords({Key? key}) : super(key: key);
@@ -119,13 +117,13 @@ class _RandomWordsState extends State<RandomWords> {
       appBar: AppBar(
         title: const Text('Start Name Generator'),
         elevation: 0,
-        actions:[
+        actions: [
           IconButton(
             icon: Icon(Icons.list),
             onPressed: _pushSaved,
           )
         ],
-        leading:ChangeThemeButtonWidget() ,
+        leading: ChangeThemeButtonWidget(),
       ),
       body: _buildSuggestions(),
     );
